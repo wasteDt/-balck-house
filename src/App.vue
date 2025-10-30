@@ -10,22 +10,25 @@
       <p>{{  userStore.token  }}</p>
       <el-button @click="userStore.setToken('Ber Sid')">登录</el-button>
       <el-button @click="userStore.removeToken()">退出</el-button>
-
+       
    </div>
+     <p>{{ CounterStore.counter }}</p>
+     <el-button @click="CounterStore.add(2)">添加</el-button>
 </template>
 
 
 <script  setup>
    import { useRoute,useRouter } from 'vue-router';
-   import { useUserStore } from './stores/user';
+   import { useUserStore ,useCounterStore} from '@/stores';
    const route = useRoute()
    const router =useRouter()
    const goList = () =>{
         router.push('/list')
        console.log(router,route)
    }
-
+  
    const userStore = useUserStore()
+   const CounterStore = useCounterStore()
 </script>
 
 <style scoped>
